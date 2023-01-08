@@ -1,23 +1,27 @@
 import './style.css'
-import javascriptLogo from './javascript.svg'
-import { setupCounter } from './counter.js'
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+// Defining async function
+async function getapi() {
+  
+  const url = "https://api.adviceslip.com/advice";
+  // Storing response
+  const response = await fetch(url);
+  
+  
+  // Storing data in form of JSON
+  var data = await response.json();
+  
+  var id = document.querySelector('#advice-id')
+  console.log(id);
+  // var id = (data.slip.id)
+  var advice = (data.slip.advice)
+  
+  document.querySelector('#advice-id').textContent = String(data.slip.id)
+  document.querySelector('#advice').textContent = String(data.slip.advice)
 
-setupCounter(document.querySelector('#counter'))
+}
+// Calling that async function
+getapi();
+
+console.log(document.getElementById('random'))
+document.querySelector('#random').addEventListener('click', getapi)

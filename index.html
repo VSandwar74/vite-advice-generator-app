@@ -4,10 +4,26 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Advice Generator</title>
   </head>
   <body>
-    
+    <main>
+      <div class="header">
+        <p>ADVICE&nbsp;#<span id="advice-id"></span></p>
+      </div>
+      <div class="advice-box">
+        <span class="advice">"<span id="advice"></span>"</span>
+      </div>
+      <div class="break">
+        <img src="./images/pattern-divider-desktop.svg" id="desktop-break"/>
+        <img src="./images/pattern-divider-mobile.svg" id="mobile-break"/>
+      </div>
+      <div class="icon">
+        <button class="button" id="random">
+          <img src="./images/icon-dice.svg" class="logo"/>
+        </button>
+      </div>
+    </main>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
